@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Studio Auvent — icône auvent rayé vert & laiton -->
+  <rect width="100" height="100" rx="22" fill="#1E4634"/>
+  <!-- barre de fixation -->
+  <rect x="16" y="24" width="68" height="6" rx="3" fill="#C2A14D"/>
+  <!-- toile : 5 bandes alternées -->
+  <g>
+    <rect x="18" y="32" width="12.8" height="26" fill="#F7F6F1"/>
+    <rect x="30.8" y="32" width="12.8" height="26" fill="#C2A14D"/>
+    <rect x="43.6" y="32" width="12.8" height="26" fill="#F7F6F1"/>
+    <rect x="56.4" y="32" width="12.8" height="26" fill="#C2A14D"/>
+    <rect x="69.2" y="32" width="12.8" height="26" fill="#F7F6F1"/>
+  </g>
+  <!-- festons -->
+  <g>
+    <path d="M18 58 a6.4 6.4 0 0 0 12.8 0 Z" fill="#F7F6F1"/>
+    <path d="M30.8 58 a6.4 6.4 0 0 0 12.8 0 Z" fill="#C2A14D"/>
+    <path d="M43.6 58 a6.4 6.4 0 0 0 12.8 0 Z" fill="#F7F6F1"/>
+    <path d="M56.4 58 a6.4 6.4 0 0 0 12.8 0 Z" fill="#C2A14D"/>
+    <path d="M69.2 58 a6.4 6.4 0 0 0 12.8 0 Z" fill="#F7F6F1"/>
+  </g>
+  <!-- seuil de la boutique -->
+  <rect x="34" y="76" width="32" height="4" rx="2" fill="#C2A14D"/>
+</svg>
