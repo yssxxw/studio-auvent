@@ -84,7 +84,7 @@ header{position:sticky;top:0;z-index:60;background:var(--vert)}
 .btn-ligne:hover{border-color:var(--encre)}
 
 /* ————— hero cinématique : la vitrine, dans la poche ————— */
-.cine{height:340vh;position:relative}
+.cine{height:340vh;position:relative;padding:0}
 .cine-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;perspective:1400px;background:var(--creme)}
 .grain{position:absolute;inset:0;z-index:44;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background:url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)"/></svg>')}
 .grille{position:absolute;inset:0;z-index:0;pointer-events:none;background-size:60px 60px;background-image:linear-gradient(to right,rgba(16,27,21,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(16,27,21,.05) 1px,transparent 1px);-webkit-mask-image:radial-gradient(ellipse at center,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse at center,#000 0%,transparent 70%)}
@@ -118,9 +118,9 @@ h1 em{font-style:italic;color:var(--vert)}
 .iphone .bt2{top:150px;left:-3px;height:44px}
 .iphone .bt3{top:208px;left:-3px;height:44px}
 .iphone .bt4{top:160px;right:-3px;height:68px;border-radius:0 2px 2px 0}
-.iphone-ecran{position:absolute;inset:7px;border-radius:38px;overflow:hidden;background:#F4F1EA;box-shadow:inset 0 0 15px rgba(0,0,0,.9)}
-.iphone-ecran img{width:100%;height:auto;display:block;animation:defile 20s ease-in-out infinite alternate}
-@keyframes defile{0%,6%{transform:translateY(0)}94%,100%{transform:translateY(calc(-100% + 554px))}}
+.iphone-ecran{position:absolute;inset:7px;border-radius:38px;overflow:hidden;background:#182420;box-shadow:inset 0 0 15px rgba(0,0,0,.9);padding-top:40px}
+.iphone-ecran img{width:100%;height:auto;display:block;border-radius:14px 14px 0 0;animation:defile 20s ease-in-out infinite alternate}
+@keyframes defile{0%,6%{transform:translateY(0)}94%,100%{transform:translateY(calc(-100% + 514px))}}
 .ilot{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:94px;height:26px;background:#000;border-radius:999px;z-index:50;display:flex;align-items:center;justify-content:flex-end;padding:0 10px;box-shadow:inset 0 -1px 2px rgba(255,255,255,.1)}
 .ilot i{width:6px;height:6px;border-radius:50%;background:#5FC97E;box-shadow:0 0 8px rgba(95,201,126,.8);animation:pulseHint 2.2s infinite}
 .glare{position:absolute;inset:7px;border-radius:38px;z-index:40;background:linear-gradient(110deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,0) 45%);pointer-events:none}
@@ -149,20 +149,26 @@ h1 em{font-style:italic;color:var(--vert)}
 .btn-fonce:active{transform:translateY(1px)}
 /* version statique : mobile & reduced-motion */
 .cine-static .cine{height:auto}
-.cine-static .cine-pin{position:static;height:auto;overflow:visible;display:block;padding:56px 0 0}
-.cine-static .cine-titre{position:static;transform:none!important;opacity:1!important;filter:none!important;margin-bottom:40px}
+.cine-static .cine-pin{position:static;height:auto;overflow:visible;display:block;padding:44px 0 0}
+.cine-static .cine-titre{position:static;transform:none!important;opacity:1!important;filter:none!important;margin-bottom:30px}
 .cine-static .t-ligne{transform:none!important;opacity:1!important;filter:none!important}
+.cine-static .t-sous{margin-top:8px}
 .cine-static .t-hint{display:none}
 .cine-static .carte-scene{position:static}
-.cine-static .carte{transform:none!important;width:min(94vw,1240px);height:auto;border-radius:24px;margin:0 auto}
-.cine-static .carte-grille{display:flex;flex-direction:column;gap:30px;padding:44px 26px;height:auto}
+.cine-static .carte{transform:none!important;width:min(94vw,1240px);height:auto;border-radius:26px 26px 0 0;margin:0 auto}
+.cine-static .carte-grille{display:flex;flex-direction:column;gap:26px;padding:38px 24px 30px;height:auto}
 .cine-static .c-gauche,.cine-static .c-droite,.cine-static .iphone-scene,.cine-static .badge-flot{opacity:1!important;transform:none!important}
 .cine-static .c-droite{justify-content:center;order:-1}
-.cine-static .iphone-scene{height:auto;flex-direction:column;gap:16px;padding:12px 0}
+.cine-static .c-droite .c-marque{font-size:clamp(3.4rem,16vw,5rem)}
+.cine-static .iphone-scene{height:auto;flex-direction:column;gap:14px;padding:8px 0;order:0}
+.cine-static .c-gauche{order:1;text-align:center}
+.cine-static .c-gauche p{margin:0 auto}
 .cine-static .iphone{transform:none!important}
 .cine-static .badge-flot{position:static;align-self:center}
-.cine-static .cine-cta{position:static;opacity:1!important;pointer-events:auto;transform:none!important;filter:none!important;background:var(--encre);padding:56px 24px;margin-top:48px}
+.cine-static .cine-cta{position:static;opacity:1!important;pointer-events:auto;transform:none!important;filter:none!important;background:linear-gradient(180deg,rgba(16,27,21,.55),var(--encre) 22%);border-top:1px solid rgba(221,190,114,.28);padding:48px 24px 52px;margin-top:36px}
+.cine-static .cine-cta h2{font-size:clamp(1.9rem,8vw,2.6rem)}
 .cine-static .grille,.cine-static .grain{display:none}
+.cine-static .manifeste{margin-top:0}
 
 /* ————— manifeste ————— */
 .manifeste{background:var(--vert);color:var(--creme);padding:72px 0;margin-top:60px;position:relative;overflow:hidden}
@@ -661,7 +667,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 /* ————— hero cinématique ————— */
 (function(){
   const reduit=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const etroit=matchMedia('(max-width: 860px)').matches;
+  const etroit=matchMedia('(max-width: 980px)').matches;
   const cine=document.getElementById('cine');
   if(reduit||etroit){document.documentElement.classList.add('cine-static');return}
 
