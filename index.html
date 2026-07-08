@@ -76,28 +76,93 @@ header{position:sticky;top:0;z-index:60;background:var(--vert)}
     radial-gradient(circle 13px at 39px 0,var(--laiton) 12.5px,transparent 13px) repeat-x;
   background-size:52px 13px}
 
-/* ————— hero : la devanture ————— */
-.hero{padding:76px 0 30px}
-.vitrine{border:1.5px solid var(--encre);outline:1.5px solid var(--encre);outline-offset:6px;padding:64px 52px 56px;background:var(--blanc);position:relative}
-.vitrine .enseigne{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--vert);color:var(--laiton-clair);font-size:.7rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding:8px 24px;white-space:nowrap}
-.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(2.5rem,5.2vw,4rem);line-height:1.04;letter-spacing:-.012em;margin-bottom:20px;text-wrap:balance}
-h1 em{font-style:italic;color:var(--vert)}
-.hero .lead{font-size:1.07rem;color:var(--encre-70);max-width:46ch}
-.hero-aside{border-left:1.5px solid var(--encre);padding-left:30px}
-.hero-aside .prix{font-family:var(--display);font-size:2.2rem;line-height:1.12}
-.hero-aside .prix b{color:var(--vert);font-weight:400}
-.hero-aside .prix .une-fois{font-size:1rem;font-family:var(--body);font-weight:600}
-.hero-aside .prix .trois-fois{font-size:1.15rem}
-.hero-aside p{font-size:.86rem;color:var(--encre-55);margin-top:10px}
-.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+/* ————— boutons (utilisés sur toute la page) ————— */
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;text-decoration:none;padding:14px 28px;border-radius:999px;font-size:.96rem;transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;border:none;cursor:pointer;font-family:var(--body)}
 .btn-vert{background:var(--vert);color:#fff;box-shadow:0 10px 26px rgba(30,70,52,.26)}
 .btn-vert:hover{transform:translateY(-2px);background:var(--vert-nuit)}
 .btn-ligne{background:transparent;color:var(--encre);border:1.5px solid var(--ligne)}
 .btn-ligne:hover{border-color:var(--encre)}
-.hero-note{text-align:center;font-size:.82rem;color:var(--encre-55);margin-top:26px}
-.hero-note em{font-family:var(--display);font-style:italic;font-size:.95rem}
+
+/* ————— hero cinématique : la vitrine, dans la poche ————— */
+.cine{height:340vh;position:relative}
+.cine-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;place-items:center;perspective:1400px;background:var(--creme)}
+.grain{position:absolute;inset:0;z-index:44;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background:url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23n)"/></svg>')}
+.grille{position:absolute;inset:0;z-index:0;pointer-events:none;background-size:60px 60px;background-image:linear-gradient(to right,rgba(16,27,21,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(16,27,21,.05) 1px,transparent 1px);-webkit-mask-image:radial-gradient(ellipse at center,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse at center,#000 0%,transparent 70%)}
+.cine-titre{position:absolute;z-index:10;text-align:center;padding:0 24px;width:100%;will-change:transform,opacity,filter}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.7rem,6.2vw,5rem);line-height:1.04;letter-spacing:-.012em;color:var(--encre)}
+h1 em{font-style:italic;color:var(--vert)}
+.t-ligne{display:block;will-change:transform,opacity,filter;text-shadow:0 10px 30px rgba(16,27,21,.14),0 2px 4px rgba(16,27,21,.08)}
+.t-sous{font-family:var(--display);font-style:italic;font-size:clamp(1.5rem,3.4vw,2.6rem);color:var(--vert);margin-top:14px;clip-path:inset(0 100% 0 0);animation:devoile 1.4s .9s cubic-bezier(.7,0,.2,1) forwards;will-change:opacity,filter}
+@keyframes devoile{to{clip-path:inset(0 0% 0 0)}}
+.t-hint{margin-top:46px;font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--encre-55);display:inline-flex;flex-direction:column;align-items:center;gap:8px}
+.t-hint::after{content:"";width:1.5px;height:34px;background:linear-gradient(var(--laiton),transparent);animation:pulseHint 2s ease-in-out infinite}
+@keyframes pulseHint{0%,100%{opacity:.35}50%{opacity:1}}
+/* la carte physique vert devanture */
+.carte-scene{position:absolute;inset:0;z-index:20;display:grid;place-items:center;pointer-events:none}
+.carte{pointer-events:auto;position:relative;width:86vw;height:86vh;border-radius:28px;overflow:hidden;background:linear-gradient(150deg,#2A5B47 0%,var(--vert) 34%,#0E1F17 100%);box-shadow:0 40px 100px -20px rgba(0,0,0,.55),0 20px 40px -20px rgba(0,0,0,.4),inset 0 1px 2px rgba(247,246,241,.18),inset 0 -2px 4px rgba(0,0,0,.6);border:1px solid rgba(221,190,114,.10);will-change:transform;transform:translateY(105vh)}
+.carte::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 26px,rgba(247,246,241,.02) 26px 52px);pointer-events:none}
+.carte-sheen{position:absolute;inset:0;z-index:32;pointer-events:none;background:radial-gradient(700px circle at var(--mx,50%) var(--my,50%),rgba(247,246,241,.075),transparent 45%);mix-blend-mode:screen}
+.carte-grille{position:relative;z-index:10;width:100%;height:100%;max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:center;gap:24px;padding:0 52px}
+.c-gauche{will-change:transform,opacity;opacity:0}
+.c-gauche h2{font-family:var(--display);font-weight:400;color:#F7F6F1;font-size:clamp(1.5rem,2.5vw,2.1rem);line-height:1.18;margin-bottom:14px}
+.c-gauche h2 em{font-style:italic;color:var(--laiton-clair)}
+.c-gauche p{color:rgba(247,246,241,.68);font-size:.95rem;max-width:34ch}
+.c-gauche p b{color:#F7F6F1;font-weight:600}
+.c-droite{display:flex;justify-content:flex-end;will-change:transform,opacity;opacity:0}
+.c-marque{font-family:var(--display);font-style:italic;font-size:clamp(3rem,6.5vw,6rem);line-height:1;background:linear-gradient(180deg,#F7F6F1 10%,var(--laiton-clair) 90%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transform:translateZ(0);filter:drop-shadow(0 14px 28px rgba(0,0,0,.55)) drop-shadow(0 4px 8px rgba(0,0,0,.4))}
+/* l'iPhone — matériel réaliste */
+.iphone-scene{position:relative;height:min(74vh,660px);display:flex;align-items:center;justify-content:center;transform-style:preserve-3d;will-change:transform,opacity;opacity:0}
+.iphone{position:relative;width:272px;height:568px;border-radius:44px;background:#141414;box-shadow:inset 0 0 0 2px #52525B,inset 0 0 0 7px #000,0 40px 80px -15px rgba(0,0,0,.85),0 15px 25px -5px rgba(0,0,0,.6);transform-style:preserve-3d;will-change:transform}
+.iphone .bt{position:absolute;width:3px;background:linear-gradient(90deg,#404040,#171717);box-shadow:-2px 0 5px rgba(0,0,0,.8),inset -1px 0 1px rgba(255,255,255,.15);border-radius:2px 0 0 2px}
+.iphone .bt1{top:112px;left:-3px;height:24px}
+.iphone .bt2{top:150px;left:-3px;height:44px}
+.iphone .bt3{top:208px;left:-3px;height:44px}
+.iphone .bt4{top:160px;right:-3px;height:68px;border-radius:0 2px 2px 0}
+.iphone-ecran{position:absolute;inset:7px;border-radius:38px;overflow:hidden;background:#F4F1EA;box-shadow:inset 0 0 15px rgba(0,0,0,.9)}
+.iphone-ecran img{width:100%;height:auto;display:block;animation:defile 20s ease-in-out infinite alternate}
+@keyframes defile{0%,6%{transform:translateY(0)}94%,100%{transform:translateY(calc(-100% + 554px))}}
+.ilot{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:94px;height:26px;background:#000;border-radius:999px;z-index:50;display:flex;align-items:center;justify-content:flex-end;padding:0 10px;box-shadow:inset 0 -1px 2px rgba(255,255,255,.1)}
+.ilot i{width:6px;height:6px;border-radius:50%;background:#5FC97E;box-shadow:0 0 8px rgba(95,201,126,.8);animation:pulseHint 2.2s infinite}
+.glare{position:absolute;inset:7px;border-radius:38px;z-index:40;background:linear-gradient(110deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,0) 45%);pointer-events:none}
+/* badges de verre flottants */
+.badge-flot{position:absolute;z-index:30;display:flex;gap:13px;align-items:center;padding:13px 17px;border-radius:16px;background:linear-gradient(135deg,rgba(247,246,241,.10),rgba(247,246,241,.015));backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 0 0 1px rgba(247,246,241,.13),0 25px 50px -12px rgba(0,0,0,.75),inset 0 1px 1px rgba(255,255,255,.18),inset 0 -1px 1px rgba(0,0,0,.5);will-change:transform,opacity;opacity:0}
+.badge-flot .ic{width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,rgba(221,190,114,.28),rgba(221,190,114,.05));display:grid;place-items:center;border:1px solid rgba(221,190,114,.4);flex:none}
+.badge-flot b{color:#fff;font-size:.88rem;letter-spacing:-.01em;white-space:nowrap}
+.badge-flot span{display:block;color:rgba(247,246,241,.55);font-size:.75rem;white-space:nowrap}
+.b1{top:7%;left:-88px}
+.b2{bottom:11%;right:-88px}
+/* phase finale : l'appel */
+.cine-cta{position:absolute;inset:0;z-index:26;display:grid;place-items:center;text-align:center;opacity:0;pointer-events:none;padding:0 24px;will-change:opacity,transform,filter}
+.cine-cta.actif{pointer-events:auto}
+.cine-cta h2{font-family:var(--display);font-weight:400;color:#F7F6F1;font-size:clamp(2.1rem,4.6vw,3.7rem);line-height:1.08;margin-bottom:16px}
+.cine-cta h2 em{font-style:italic;color:var(--laiton-clair)}
+.cine-cta p{color:rgba(247,246,241,.66);max-width:52ch;margin:0 auto 34px}
+.cta-btns{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.btn-tact{display:inline-flex;flex-direction:column;align-items:flex-start;text-decoration:none;padding:15px 30px;border-radius:18px;transition:all .4s cubic-bezier(.25,1,.5,1);text-align:left}
+.btn-tact small{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-bottom:1px}
+.btn-tact .l{font-size:1.12rem;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.btn-clair{background:linear-gradient(180deg,#FFFFFF,#EFEDE6);color:var(--encre);box-shadow:0 0 0 1px rgba(0,0,0,.05),0 2px 4px rgba(0,0,0,.12),0 12px 24px -4px rgba(0,0,0,.35),inset 0 1px 1px #fff,inset 0 -3px 6px rgba(0,0,0,.06)}
+.btn-clair:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(0,0,0,.05),0 6px 12px -2px rgba(0,0,0,.18),0 20px 32px -6px rgba(0,0,0,.42),inset 0 1px 1px #fff,inset 0 -3px 6px rgba(0,0,0,.06)}
+.btn-clair:active{transform:translateY(1px);box-shadow:0 0 0 1px rgba(0,0,0,.1),inset 0 3px 6px rgba(0,0,0,.12)}
+.btn-fonce{background:linear-gradient(180deg,#C9A855,#A98832);color:var(--encre);box-shadow:0 0 0 1px rgba(255,255,255,.12),0 2px 4px rgba(0,0,0,.5),0 12px 24px -4px rgba(0,0,0,.8),inset 0 1px 1px rgba(255,255,255,.35),inset 0 -3px 6px rgba(0,0,0,.3)}
+.btn-fonce:hover{transform:translateY(-3px);background:linear-gradient(180deg,#DDBE72,#C2A14D)}
+.btn-fonce:active{transform:translateY(1px)}
+/* version statique : mobile & reduced-motion */
+.cine-static .cine{height:auto}
+.cine-static .cine-pin{position:static;height:auto;overflow:visible;display:block;padding:56px 0 0}
+.cine-static .cine-titre{position:static;transform:none!important;opacity:1!important;filter:none!important;margin-bottom:40px}
+.cine-static .t-ligne{transform:none!important;opacity:1!important;filter:none!important}
+.cine-static .t-hint{display:none}
+.cine-static .carte-scene{position:static}
+.cine-static .carte{transform:none!important;width:min(94vw,1240px);height:auto;border-radius:24px;margin:0 auto}
+.cine-static .carte-grille{display:flex;flex-direction:column;gap:30px;padding:44px 26px;height:auto}
+.cine-static .c-gauche,.cine-static .c-droite,.cine-static .iphone-scene,.cine-static .badge-flot{opacity:1!important;transform:none!important}
+.cine-static .c-droite{justify-content:center;order:-1}
+.cine-static .iphone-scene{height:auto;flex-direction:column;gap:16px;padding:12px 0}
+.cine-static .iphone{transform:none!important}
+.cine-static .badge-flot{position:static;align-self:center}
+.cine-static .cine-cta{position:static;opacity:1!important;pointer-events:auto;transform:none!important;filter:none!important;background:var(--encre);padding:56px 24px;margin-top:48px}
+.cine-static .grille,.cine-static .grain{display:none}
 
 /* ————— manifeste ————— */
 .manifeste{background:var(--vert);color:var(--creme);padding:72px 0;margin-top:60px;position:relative;overflow:hidden}
@@ -286,26 +351,68 @@ footer .brand{font-size:1.35rem}
 </header>
 <div class="awning" aria-hidden="true"></div>
 
-<section class="hero">
-  <div class="container">
-    <div class="vitrine reveal">
-      <span class="enseigne">Sites web · Artisans &amp; commerces · Aube · Marne · Yonne</span>
-      <div class="hero-grid">
-        <div>
-          <h1>Votre métier mérite une belle <em>vitrine</em>. En ligne aussi.</h1>
-          <p class="lead">Studio Auvent conçoit les sites des artisans et commerces de la région. Quatre à cinq pages, pensées d'abord pour le téléphone — parce que c'est là que vos clients vous cherchent. En ligne en sept jours.</p>
-          <div class="hero-ctas">
-            <a href="#offre" class="btn btn-vert">Voir l'offre</a>
-            <a href="#demos" class="btn btn-ligne">Voir le travail</a>
+<section class="cine" id="cine" aria-label="Votre métier mérite une belle vitrine. En ligne aussi.">
+  <div class="cine-pin">
+    <div class="grille" aria-hidden="true"></div>
+
+    <!-- phase 1 : le titre qui s'écarte -->
+    <div class="cine-titre" id="cineTitre">
+      <h1>
+        <span class="t-ligne" id="tG">Votre métier mérite</span>
+        <span class="t-ligne" id="tD">une belle <em>vitrine</em>.</span>
+      </h1>
+      <p class="t-sous" id="tS">En ligne aussi.</p>
+      <br>
+      <span class="t-hint" id="tHint">Faites défiler</span>
+    </div>
+
+    <!-- phase 2 : la carte physique + iPhone -->
+    <div class="carte-scene">
+      <div class="carte" id="carte">
+        <div class="carte-sheen" aria-hidden="true"></div>
+        <div class="carte-grille">
+          <div class="c-gauche" id="cGauche">
+            <h2>La maquette d'abord. <em>La décision ensuite.</em></h2>
+            <p>Votre site — <b>vos photos, vos avis, votre zone</b> — construit et montré avant tout engagement. Ici, la démo d'un plombier de Troyes, telle que ses clients la voient : sur un téléphone.</p>
+          </div>
+          <div class="iphone-scene" id="iphoneScene">
+            <div class="iphone" id="iphone">
+              <span class="bt bt1" aria-hidden="true"></span><span class="bt bt2" aria-hidden="true"></span><span class="bt bt3" aria-hidden="true"></span><span class="bt bt4" aria-hidden="true"></span>
+              <div class="iphone-ecran">
+                <img src="ecran-plombier.jpg" alt="La démo Plomberie Dubois défile sur un iPhone" onerror="this.style.display='none'">
+              </div>
+              <div class="ilot" aria-hidden="true"><i></i></div>
+              <div class="glare" aria-hidden="true"></div>
+            </div>
+            <div class="badge-flot b1">
+              <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#DDBE72" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <div><b>En ligne en 7 jours</b><span>fiche Google comprise</span></div>
+            </div>
+            <div class="badge-flot b2">
+              <span class="ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#DDBE72" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span>
+              <div><b>699€, puis c'est à vous</b><span>ou 3 × 233€ sans frais</span></div>
+            </div>
+          </div>
+          <div class="c-droite" id="cDroite">
+            <span class="c-marque">Auvent</span>
           </div>
         </div>
-        <div class="hero-aside">
-          <div class="prix"><b>699€</b> <span class="une-fois">la création</span><br><span class="trois-fois">ou 3 × 233€ sans frais</span></div>
-          <p>Le site vous appartient. Maintenance à 29€/mois — hébergement, domaine, modifications — sans engagement. Pas d'autre ligne sur la facture.</p>
+
+        <!-- phase 3 : l'appel -->
+        <div class="cine-cta" id="cineCta">
+          <div>
+            <h2>Voyez votre site <em>avant de décider.</em></h2>
+            <p>Cinq démos ci-dessous, cinq métiers qui ne se ressemblent pas — et pour vous, une maquette réelle construite avant tout paiement.</p>
+            <div class="cta-btns">
+              <a href="#demos" class="btn-tact btn-clair"><small>Cinq métiers, cinq sites</small><span class="l">Voir le travail</span></a>
+              <a href="#contact" class="btn-tact btn-fonce"><small>Sans engagement</small><span class="l">Recevoir ma maquette</span></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <p class="hero-note">On commence par vous montrer <em>votre</em> site — la maquette d'abord, la décision ensuite.</p>
+
+    <div class="grain" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -550,6 +657,90 @@ burger.addEventListener('click',()=>{
 links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ————— hero cinématique ————— */
+(function(){
+  const reduit=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const etroit=matchMedia('(max-width: 860px)').matches;
+  const cine=document.getElementById('cine');
+  if(reduit||etroit){document.documentElement.classList.add('cine-static');return}
+
+  const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+  // part de progression [a,b] → 0..1 adouci
+  const tranche=(p,a,b)=>{const t=clamp((p-a)/(b-a),0,1);return t*t*(3-2*t)};
+
+  const tG=document.getElementById('tG'),tD=document.getElementById('tD'),tS=document.getElementById('tS'),
+        tHint=document.getElementById('tHint'),titre=document.getElementById('cineTitre'),
+        carte=document.getElementById('carte'),scene=document.getElementById('iphoneScene'),
+        iphone=document.getElementById('iphone'),cG=document.getElementById('cGauche'),
+        cD=document.getElementById('cDroite'),cta=document.getElementById('cineCta'),
+        b1=document.querySelector('.b1'),b2=document.querySelector('.b2');
+
+  let progres=0,rendu=false;
+  function peindre(){
+    rendu=false;
+    const p=progres;
+    // 1 — le titre s'écarte et se dissout
+    const e=tranche(p,0,.24);
+    tG.style.transform=`translateX(${-e*54}vw)`;
+    tD.style.transform=`translateX(${e*54}vw)`;
+    titre.style.opacity=1-tranche(p,.10,.26);
+    titre.style.filter=`blur(${tranche(p,.08,.26)*14}px)`;
+    tS.style.opacity=1-tranche(p,.04,.16);
+    tHint.style.opacity=1-tranche(p,.01,.06);
+    // 2 — la carte monte puis emplit l'écran
+    const m=tranche(p,.06,.36),x=tranche(p,.36,.52);
+    carte.style.transform=`translateY(${(1-m)*105}vh)`;
+    carte.style.width=(86+x*14)+'vw';
+    carte.style.height=(86+x*14)+'vh';
+    carte.style.borderRadius=(28*(1-x))+'px';
+    // 3 — l'iPhone entre en 3D
+    const i=tranche(p,.34,.58);
+    scene.style.opacity=i;
+    scene.style.transform=`translateY(${(1-i)*260}px) scale(${.62+i*.38})`;
+    iphone.style.transform=`rotateX(${(1-i)*48}deg) rotateY(${(1-i)*-26}deg) translateZ(${(1-i)*-380}px)`;
+    iphone.dataset.entree=(i>=1)?'1':'';
+    // 4 — badges et textes latéraux
+    const g=tranche(p,.56,.70),d=tranche(p,.58,.72);
+    cG.style.opacity=g;cG.style.transform=`translateX(${(1-g)*-46}px)`;
+    cD.style.opacity=d;cD.style.transform=`translateX(${(1-d)*46}px) scale(${.85+d*.15})`;
+    const bb1=tranche(p,.60,.74),bb2=tranche(p,.64,.78);
+    b1.style.opacity=bb1;b1.style.transform=`translateY(${(1-bb1)*70}px) rotate(${(1-bb1)*-7}deg)`;
+    b2.style.opacity=bb2;b2.style.transform=`translateY(${(1-bb2)*70}px) rotate(${(1-bb2)*7}deg)`;
+    // 5 — bascule vers l'appel
+    const f=tranche(p,.84,.97);
+    [scene,cG,cD].forEach(el=>{if(f>0){el.style.opacity=Math.min(+el.style.opacity||1,1-f)}});
+    cta.style.opacity=f;
+    cta.style.transform=`scale(${.88+f*.12})`;
+    cta.style.filter=`blur(${(1-f)*22}px)`;
+    cta.classList.toggle('actif',f>.6);
+  }
+  function surScroll(){
+    const r=cine.getBoundingClientRect();
+    const total=cine.offsetHeight-innerHeight;
+    progres=clamp(-r.top/total,0,1);
+    if(!rendu){rendu=true;requestAnimationFrame(peindre)}
+  }
+  addEventListener('scroll',surScroll,{passive:true});
+  surScroll();
+
+  // inclinaison 3D à la souris + reflet (une fois l'iPhone en place)
+  let mReq=0;
+  addEventListener('mousemove',e=>{
+    if(progres<.55||progres>.86)return;
+    cancelAnimationFrame(mReq);
+    mReq=requestAnimationFrame(()=>{
+      const rc=carte.getBoundingClientRect();
+      carte.style.setProperty('--mx',(e.clientX-rc.left)+'px');
+      carte.style.setProperty('--my',(e.clientY-rc.top)+'px');
+      if(iphone.dataset.entree){
+        const rx=(e.clientY/innerHeight-.5)*-14,ry=(e.clientX/innerWidth-.5)*14;
+        iphone.style.transform=`rotateX(${rx}deg) rotateY(${ry}deg)`;
+        iphone.style.transition='transform .9s cubic-bezier(.2,.8,.2,1)';
+      }
+    });
+  },{passive:true});
+})();
 // envoi du formulaire sans quitter la page
 const form=document.querySelector('form'),statut=document.getElementById('form-status');
 form.addEventListener('submit',async e=>{
