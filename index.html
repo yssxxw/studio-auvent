@@ -126,7 +126,8 @@ h2 em{font-style:italic}
 .browser i{width:8px;height:8px;border-radius:50%;background:#CBC8BE}
 .browser .url{margin-left:8px;background:#fff;border-radius:6px;font-size:.68rem;color:var(--encre-55);padding:3px 12px;flex:1;font-weight:500}
 .capture{flex:1;position:relative;overflow:hidden}
-.capture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+/* la vraie capture (apercu-*.jpg) recouvre l'aperçu stylisé dès qu'elle existe dans le repo */
+.capture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:2}
 /* aperçus stylisés (en attendant les captures des démos déployées) */
 .mini{position:absolute;inset:0;padding:24px;display:flex;flex-direction:column;gap:11px}
 .mini .bar{height:9px;border-radius:5px}
@@ -326,7 +327,7 @@ footer .brand{font-size:1.35rem}
     <a href="https://plomberie.studio-auvent.fr" class="demo reveal">
       <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">plomberie-dubois.fr</span></div>
-        <div class="capture"><div class="mini mini-plombier" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+        <div class="capture"><img src="apercu-plombier.jpg" alt="Capture du site Plomberie Dubois" loading="lazy" onerror="this.remove()"><div class="mini mini-plombier" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
       </div>
       <div class="demo-txt">
         <span class="metier"><span class="num">01</span> Plombier-chauffagiste</span>
@@ -339,7 +340,7 @@ footer .brand{font-size:1.35rem}
     <a href="https://boulangerie.studio-auvent.fr" class="demo reveal">
       <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">boulangerie-du-marche.fr</span></div>
-        <div class="capture"><div class="mini mini-boulangerie" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+        <div class="capture"><img src="apercu-boulangerie.jpg" alt="Capture du site Boulangerie du Marché" loading="lazy" onerror="this.remove()"><div class="mini mini-boulangerie" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
       </div>
       <div class="demo-txt">
         <span class="metier"><span class="num">02</span> Boulangerie-pâtisserie</span>
@@ -352,7 +353,7 @@ footer .brand{font-size:1.35rem}
     <a href="https://electricien.studio-auvent.fr" class="demo reveal">
       <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">girard-electricite.fr</span></div>
-        <div class="capture"><div class="mini mini-electricien" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+        <div class="capture"><img src="apercu-electricien.jpg" alt="Capture du site Girard Électricité" loading="lazy" onerror="this.remove()"><div class="mini mini-electricien" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
       </div>
       <div class="demo-txt">
         <span class="metier"><span class="num">03</span> Électricien</span>
@@ -365,7 +366,7 @@ footer .brand{font-size:1.35rem}
     <a href="https://traiteur.studio-auvent.fr" class="demo reveal">
       <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">maison-berthelot.fr</span></div>
-        <div class="capture"><div class="mini mini-traiteur" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+        <div class="capture"><img src="apercu-traiteur.jpg" alt="Capture du site Maison Berthelot" loading="lazy" onerror="this.remove()"><div class="mini mini-traiteur" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
       </div>
       <div class="demo-txt">
         <span class="metier"><span class="num">04</span> Traiteur événementiel</span>
@@ -378,7 +379,7 @@ footer .brand{font-size:1.35rem}
     <a href="https://menuisier.studio-auvent.fr" class="demo reveal">
       <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">atelier-vasseur.fr</span></div>
-        <div class="capture"><div class="mini mini-menuisier" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+        <div class="capture"><img src="apercu-menuisier.jpg" alt="Capture du site Atelier Vasseur" loading="lazy" onerror="this.remove()"><div class="mini mini-menuisier" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
       </div>
       <div class="demo-txt">
         <span class="metier"><span class="num">05</span> Menuisier-agenceur</span>
