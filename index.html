@@ -3,218 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Studio Auvent — Sites web pour artisans et commerces | Aube, Marne & Yonne</title>
-<meta name="description" content="Studio Auvent crée le site web de votre commerce ou entreprise artisanale. 0€ à la création, 89€/mois tout compris. En ligne en 7 jours. Aube, Marne, Yonne et alentours.">
+<title>Studio Auvent — Sites web pour artisans et commerces, Aube, Marne, Yonne</title>
+<meta name="description" content="Studio Auvent conçoit les sites des artisans et commerces de l'Aube, de la Marne et de l'Yonne. 4-5 pages pensées pour le téléphone, en ligne en 7 jours. 699€ la création, 29€/mois pour la maintenance, tout compris.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="https://studio-auvent.fr/">
+<meta property="og:title" content="Studio Auvent — Sites web pour artisans et commerces">
+<meta property="og:description" content="Votre métier mérite une belle vitrine. En ligne aussi. 699€ la création, 29€/mois, en ligne en 7 jours — Aube, Marne, Yonne.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://studio-auvent.fr/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Studio Auvent",
+  "description": "Création de sites web pour artisans et commerces — Aube, Marne, Yonne.",
+  "email": "bonjour@studio-auvent.fr",
+  "url": "https://studio-auvent.fr",
+  "areaServed": ["Aube", "Marne", "Yonne"],
+  "priceRange": "699€"
+}
+</script>
 <style>
 :root{
   --encre:#101B15;
   --vert:#1E4634;
-  --vert-fonce:#15332545;
+  --vert-nuit:#16382A;
   --laiton:#C2A14D;
   --laiton-clair:#DDBE72;
-  --blanc:#F7F6F1;
-  --blanc-pur:#FFFFFF;
-  --ligne:rgba(16,27,21,.13);
-  --font-display:"Instrument Serif",serif;
-  --font-body:"Inter",sans-serif;
+  --creme:#F7F6F1;
+  --blanc:#FFFFFF;
+  --ligne:rgba(16,27,21,.14);
+  --ligne-douce:rgba(16,27,21,.08);
+  --encre-70:rgba(16,27,21,.72);
+  --encre-55:rgba(16,27,21,.56);
+  --display:"Instrument Serif",Georgia,serif;
+  --body:"Inter",system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);color:var(--encre);background:var(--blanc);line-height:1.65;font-size:16px}
+body{font-family:var(--body);color:var(--encre);background:var(--creme);line-height:1.68;font-size:16.5px;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.container{max-width:1100px;margin:0 auto;padding:0 24px}
+::selection{background:var(--laiton-clair);color:var(--encre)}
+img{max-width:100%;display:block}
+.skip{position:absolute;left:-9999px;top:0;background:var(--encre);color:#fff;padding:10px 18px;z-index:100}
+.skip:focus{left:12px;top:12px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2.5px solid var(--laiton);outline-offset:3px;border-radius:2px}
+.container{max-width:1080px;margin:0 auto;padding:0 24px}
 
-/* ---------- header + store awning (signature) ---------- */
+/* ————— header : l'enseigne ————— */
 header{position:sticky;top:0;z-index:60;background:var(--vert)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
-.brand{font-family:var(--font-display);font-size:1.55rem;letter-spacing:.02em;color:var(--laiton-clair);text-decoration:none}
+.brand{font-family:var(--display);font-size:1.5rem;letter-spacing:.02em;color:var(--laiton-clair);text-decoration:none;display:flex;align-items:center;gap:12px}
+.brand svg{flex:none}
 .nav-links{display:flex;gap:26px;list-style:none;align-items:center}
-.nav-links a{text-decoration:none;font-size:.9rem;font-weight:500;color:rgba(247,246,241,.85);transition:color .2s}
+.nav-links a{text-decoration:none;font-size:.88rem;font-weight:500;color:rgba(247,246,241,.85);transition:color .2s}
 .nav-links a:hover{color:#fff}
 .nav-cta{background:var(--laiton);color:var(--encre)!important;font-weight:600;padding:9px 18px;border-radius:999px;transition:background .2s}
 .nav-cta:hover{background:var(--laiton-clair)}
-.burger{display:none;background:none;border:none;cursor:pointer;padding:8px}
-.burger span{display:block;width:22px;height:2px;background:var(--blanc);margin:5px 0;border-radius:2px}
-/* le store banne — festons */
-.awning{height:16px;background:
-  radial-gradient(circle 11px at 11px 0, var(--vert) 10px, transparent 11px) repeat-x;
-  background-size:22px 16px;position:relative;z-index:59}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:10px}
+.burger span{display:block;width:22px;height:2px;background:var(--creme);margin:5px 0;border-radius:2px;transition:transform .25s,opacity .2s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* la toile du store : rayures + festons */
+.awning{height:22px;position:relative;background:repeating-linear-gradient(90deg,var(--vert) 0 26px,var(--laiton) 26px 52px)}
+.awning::after{content:"";position:absolute;left:0;right:0;top:100%;height:13px;
+  background:
+    radial-gradient(circle 13px at 13px 0,var(--vert) 12.5px,transparent 13px) repeat-x,
+    radial-gradient(circle 13px at 39px 0,var(--laiton) 12.5px,transparent 13px) repeat-x;
+  background-size:52px 13px}
 
-/* ---------- hero vitrine ---------- */
-.hero{padding:70px 0 78px}
-.vitrine{border:1.5px solid var(--encre);outline:1.5px solid var(--encre);outline-offset:5px;padding:64px 48px;text-align:center;background:var(--blanc-pur);position:relative}
-.vitrine .enseigne{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--vert);color:var(--laiton-clair);font-size:.74rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:7px 22px;white-space:nowrap}
-h1{font-family:var(--font-display);font-weight:400;font-size:clamp(2.5rem,5.6vw,4.2rem);line-height:1.06;letter-spacing:-.01em;margin:14px auto 20px;max-width:17ch}
+/* ————— hero : la devanture ————— */
+.hero{padding:76px 0 30px}
+.vitrine{border:1.5px solid var(--encre);outline:1.5px solid var(--encre);outline-offset:6px;padding:64px 52px 56px;background:var(--blanc);position:relative}
+.vitrine .enseigne{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--vert);color:var(--laiton-clair);font-size:.7rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding:8px 24px;white-space:nowrap}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.5rem,5.2vw,4rem);line-height:1.04;letter-spacing:-.012em;margin-bottom:20px;text-wrap:balance}
 h1 em{font-style:italic;color:var(--vert)}
-.hero .lead{font-size:1.12rem;color:rgba(16,27,21,.72);max-width:520px;margin:0 auto 34px}
-.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
-.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;text-decoration:none;padding:15px 30px;border-radius:999px;font-size:1rem;transition:transform .15s,box-shadow .2s,background .2s;border:none;cursor:pointer;font-family:var(--font-body)}
-.btn-vert{background:var(--vert);color:#fff;box-shadow:0 10px 26px rgba(30,70,52,.3)}
-.btn-vert:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(30,70,52,.38)}
+.hero .lead{font-size:1.07rem;color:var(--encre-70);max-width:46ch}
+.hero-aside{border-left:1.5px solid var(--encre);padding-left:30px}
+.hero-aside .prix{font-family:var(--display);font-size:2.2rem;line-height:1.12}
+.hero-aside .prix b{color:var(--vert);font-weight:400}
+.hero-aside .prix .une-fois{font-size:1rem;font-family:var(--body);font-weight:600}
+.hero-aside .prix .trois-fois{font-size:1.15rem}
+.hero-aside p{font-size:.86rem;color:var(--encre-55);margin-top:10px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;text-decoration:none;padding:14px 28px;border-radius:999px;font-size:.96rem;transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;border:none;cursor:pointer;font-family:var(--body)}
+.btn-vert{background:var(--vert);color:#fff;box-shadow:0 10px 26px rgba(30,70,52,.26)}
+.btn-vert:hover{transform:translateY(-2px);background:var(--vert-nuit)}
 .btn-ligne{background:transparent;color:var(--encre);border:1.5px solid var(--ligne)}
 .btn-ligne:hover{border-color:var(--encre)}
-.hero-points{display:flex;gap:10px 28px;justify-content:center;flex-wrap:wrap;font-size:.9rem;font-weight:600;color:rgba(16,27,21,.75)}
-.hero-points span{display:inline-flex;align-items:center;gap:8px}
-.hero-points i{width:7px;height:7px;border-radius:50%;background:var(--laiton);flex:none}
+.hero-note{text-align:center;font-size:.82rem;color:var(--encre-55);margin-top:26px}
+.hero-note em{font-family:var(--display);font-style:italic;font-size:.95rem}
 
-/* ---------- constat ---------- */
-.constat{background:var(--vert);color:var(--blanc);padding:58px 0;text-align:center}
-.constat p{font-family:var(--font-display);font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.35;max-width:24ch;margin:0 auto}
-.constat em{font-style:italic;color:var(--laiton-clair)}
+/* ————— manifeste ————— */
+.manifeste{background:var(--vert);color:var(--creme);padding:72px 0;margin-top:60px;position:relative;overflow:hidden}
+.manifeste::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 26px,rgba(247,246,241,.025) 26px 52px)}
+.manifeste .container{max-width:840px;position:relative}
+.manifeste p{font-family:var(--display);font-size:clamp(1.4rem,2.7vw,1.95rem);line-height:1.42}
+.manifeste em{font-style:italic;color:var(--laiton-clair)}
+.manifeste .sign{font-family:var(--body);font-size:.84rem;color:rgba(247,246,241,.62);margin-top:24px;display:flex;align-items:center;gap:12px}
+.manifeste .sign::before{content:"";width:34px;height:1.5px;background:var(--laiton)}
 
-/* ---------- sections ---------- */
-section{padding:88px 0}
-.kicker{font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--vert);display:block;margin-bottom:12px}
-h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.9rem,3.4vw,2.7rem);letter-spacing:-.01em;line-height:1.12;margin-bottom:12px}
-.section-head{max-width:600px;margin-bottom:46px}
-.section-head p{color:rgba(16,27,21,.7)}
+/* ————— sections ————— */
+section{padding:92px 0}
+.kicker{font-size:.73rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--vert);display:block;margin-bottom:12px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(1.95rem,3.5vw,2.7rem);letter-spacing:-.01em;line-height:1.1;margin-bottom:14px;text-wrap:balance}
+h2 em{font-style:italic}
+.section-head{max-width:640px;margin-bottom:48px}
+.section-head p{color:var(--encre-70)}
 
-/* ---------- démos ---------- */
-.demos-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.demo{text-decoration:none;border:1px solid var(--ligne);border-radius:16px;overflow:hidden;background:var(--blanc-pur);transition:transform .2s,box-shadow .25s;display:block}
-.demo:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(16,27,21,.14)}
-.browser{background:#E9E7E0;padding:9px 12px;display:flex;gap:6px;align-items:center}
-.browser i{width:9px;height:9px;border-radius:50%;background:#CBC8BE}
-.browser .url{margin-left:8px;background:#fff;border-radius:6px;font-size:.7rem;color:rgba(16,27,21,.55);padding:3px 10px;flex:1;text-align:left}
-.mini{aspect-ratio:16/10.5;padding:22px;display:flex;flex-direction:column;gap:12px}
-.mini-plombier{background:linear-gradient(160deg,#153A52,#0F2A3D)}
-.mini-boulangerie{background:linear-gradient(160deg,#FBF6EE,#F3E9D8)}
-.mini .bar{height:10px;border-radius:5px}
-.mini .row{display:flex;gap:10px}
+/* ————— les démos : rangées éditoriales ————— */
+.demo{display:grid;grid-template-columns:.94fr 1.06fr;gap:0;border:1px solid var(--ligne);border-radius:16px;overflow:hidden;background:var(--blanc);margin-bottom:24px;text-decoration:none;transition:transform .2s,box-shadow .25s;position:relative}
+.demo:nth-of-type(even){grid-template-columns:1.06fr .94fr}
+.demo:nth-of-type(even) .demo-visu{order:2}
+.demo:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(16,27,21,.13)}
+.demo-visu{position:relative;min-height:264px;display:flex;flex-direction:column;background:#E9E7E0}
+.browser{background:#E9E7E0;padding:9px 13px;display:flex;gap:6px;align-items:center;flex:none}
+.browser i{width:8px;height:8px;border-radius:50%;background:#CBC8BE}
+.browser .url{margin-left:8px;background:#fff;border-radius:6px;font-size:.68rem;color:var(--encre-55);padding:3px 12px;flex:1;font-weight:500}
+.capture{flex:1;position:relative;overflow:hidden}
+.capture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+/* aperçus stylisés (en attendant les captures des démos déployées) */
+.mini{position:absolute;inset:0;padding:24px;display:flex;flex-direction:column;gap:11px}
+.mini .bar{height:9px;border-radius:5px}
+.mini .row{display:flex;gap:9px;flex:1;min-height:44px}
 .mini .box{border-radius:8px;flex:1}
-.mini-plombier .bar1{width:62%;background:rgba(255,255,255,.92)}
-.mini-plombier .bar2{width:40%;background:#D08A4C}
-.mini-plombier .box{height:52px;background:rgba(255,255,255,.14)}
-.mini-plombier .pill{width:120px;height:26px;border-radius:999px;background:linear-gradient(135deg,#D08A4C,#8F4A1E)}
+.mini .pill{width:112px;height:25px;border-radius:999px}
+.mini-plombier{background:linear-gradient(160deg,#2C5468,#1E3D4E)}
+.mini-plombier .bar1{width:62%;background:#F4F1EA}
+.mini-plombier .bar2{width:40%;background:#E8641E}
+.mini-plombier .box{background:rgba(244,241,234,.14)}
+.mini-plombier .pill{background:#E8641E}
+.mini-boulangerie{background:linear-gradient(160deg,#FBF6EE,#F3E9D8)}
 .mini-boulangerie .bar1{width:58%;background:#2C1D12}
 .mini-boulangerie .bar2{width:36%;background:#C98A2B}
-.mini-boulangerie .box{height:52px;background:rgba(44,29,18,.12)}
-.mini-boulangerie .pill{width:120px;height:26px;border-radius:999px;background:linear-gradient(135deg,#C98A2B,#8A4B25)}
-.mini-electricien{background:linear-gradient(160deg,#FFFFFF,#F5F5F7)}
-.mini-electricien .bar1{width:60%;background:#1D1D1F;border-radius:5px}
-.mini-electricien .bar2{width:38%;background:#2E5BFF;border-radius:5px}
-.mini-electricien .box{height:52px;background:#F5F5F7;border-radius:12px;box-shadow:0 1px 3px rgba(29,29,31,.08)}
-.mini-electricien .pill{width:120px;height:26px;background:#2E5BFF;border-radius:999px}
+.mini-boulangerie .box{background:rgba(44,29,18,.12)}
+.mini-boulangerie .pill{background:linear-gradient(135deg,#C98A2B,#8A4B25)}
+.mini-electricien{background:linear-gradient(160deg,#0B1220,#121C30)}
+.mini-electricien .bar1{width:60%;background:rgba(255,255,255,.92)}
+.mini-electricien .bar2{width:38%;background:#3B66FF}
+.mini-electricien .box{background:rgba(255,201,107,.16)}
+.mini-electricien .pill{background:#3B66FF}
 .mini-traiteur{background:linear-gradient(160deg,#FAF6EF,#EFE4D2)}
 .mini-traiteur .bar1{width:56%;background:#3A1F30}
 .mini-traiteur .bar2{width:34%;background:#D8B98A}
-.mini-traiteur .box{height:52px;background:rgba(58,31,48,.1)}
-.mini-traiteur .pill{width:120px;height:26px;border-radius:999px;background:linear-gradient(135deg,#D8B98A,#B08D55)}
-.demo .body{padding:20px 22px 24px}
-.demo h3{font-family:var(--font-display);font-weight:400;font-size:1.35rem;margin-bottom:6px}
-.demo p{font-size:.92rem;color:rgba(16,27,21,.68)}
-.demo .voir{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:.88rem;font-weight:700;color:var(--vert)}
+.mini-traiteur .box{background:rgba(58,31,48,.1)}
+.mini-traiteur .pill{background:linear-gradient(135deg,#D8B98A,#B08D55)}
+.mini-menuisier{background:linear-gradient(160deg,#FBF9F4,#F0EBDF)}
+.mini-menuisier .bar1{width:58%;background:#1C1712}
+.mini-menuisier .bar2{width:36%;background:#7A4A26}
+.mini-menuisier .box{background:rgba(122,74,38,.16)}
+.mini-menuisier .pill{background:#7A4A26}
+.demo-txt{padding:34px 36px;display:flex;flex-direction:column;justify-content:center}
+.demo-txt .metier{font-size:.73rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--vert);margin-bottom:9px;display:flex;align-items:baseline;gap:10px}
+.demo-txt .num{font-family:var(--display);font-style:italic;font-size:1rem;color:var(--laiton);letter-spacing:0;text-transform:none}
+.demo-txt h3{font-family:var(--display);font-weight:400;font-size:1.55rem;margin-bottom:10px}
+.demo-txt .decision{font-size:.93rem;color:var(--encre-70)}
+.demo-txt .decision b{color:var(--encre);font-weight:600}
+.demo-txt .voir{margin-top:16px;font-size:.88rem;font-weight:700;color:var(--vert)}
 .demo:hover .voir{text-decoration:underline;text-underline-offset:3px}
+.demos-note{font-size:.84rem;color:var(--encre-55);margin-top:8px;font-style:italic}
 
-/* ---------- offre ---------- */
-.offre{background:var(--blanc-pur);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
-.offre-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.prix-card{border:1.5px solid var(--encre);outline:1.5px solid var(--encre);outline-offset:5px;background:var(--blanc);padding:42px 38px;text-align:center}
-.prix-card .zero{font-family:var(--font-display);font-size:3.4rem;line-height:1;color:var(--vert)}
-.prix-card .zero small{font-size:1.1rem;font-family:var(--font-body);font-weight:600;color:var(--encre)}
-.prix-card .mensuel{margin-top:8px;font-size:1.15rem;font-weight:700}
-.prix-card .mensuel b{font-family:var(--font-display);font-weight:400;font-size:2rem;color:var(--encre)}
-.prix-card .detail{font-size:.84rem;color:rgba(16,27,21,.6);margin-top:6px}
-.prix-card .btn{margin-top:26px;width:100%;justify-content:center}
-.inclus{list-style:none;display:flex;flex-direction:column;gap:14px}
-.inclus li{display:flex;gap:13px;align-items:flex-start;font-size:.98rem}
-.inclus svg{flex:none;margin-top:4px}
+/* ————— offre ————— */
+.offre{background:var(--blanc);border-top:1px solid var(--ligne-douce);border-bottom:1px solid var(--ligne-douce)}
+.offre-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:start}
+.inclus{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:26px}
+.inclus li{display:flex;gap:14px;align-items:flex-start;font-size:.97rem}
+.inclus svg{flex:none;margin-top:5px}
 .inclus b{font-weight:600}
-.engagement{margin-top:24px;font-size:.86rem;color:rgba(16,27,21,.6);padding:14px 18px;background:var(--blanc);border-radius:12px;border:1px solid var(--ligne)}
+.pas-inclus{margin-top:38px;border-top:1px dashed var(--ligne);padding-top:28px}
+.pas-inclus h3{font-family:var(--display);font-weight:400;font-size:1.35rem;margin-bottom:14px}
+.pas-inclus ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.pas-inclus li{font-size:.92rem;color:var(--encre-70);padding-left:22px;position:relative}
+.pas-inclus li::before{content:"—";position:absolute;left:0;color:var(--laiton)}
+.pas-inclus li b{color:var(--encre);font-weight:600}
+.prix-card{border:1.5px solid var(--encre);outline:1.5px solid var(--encre);outline-offset:6px;background:var(--creme);padding:42px 36px;text-align:center;position:sticky;top:110px}
+.prix-card .creation{font-family:var(--display);font-size:3.3rem;line-height:1;color:var(--vert)}
+.prix-card .creation small{font-size:1.05rem;font-family:var(--body);font-weight:600;color:var(--encre)}
+.prix-card .mensuel{margin-top:10px;font-size:1.08rem;font-weight:700}
+.prix-card .mensuel b{font-family:var(--display);font-weight:400;font-size:1.9rem}
+.prix-card .detail{font-size:.83rem;color:var(--encre-55);margin-top:10px;line-height:1.55}
+.prix-card .btn{margin-top:26px;width:100%;justify-content:center}
 
-/* ---------- méthode ---------- */
-.etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.etape{background:var(--blanc-pur);border:1px solid var(--ligne);border-radius:16px;padding:30px 26px}
-.etape .num{font-family:var(--font-display);font-style:italic;font-size:2.2rem;color:var(--laiton);line-height:1;display:block;margin-bottom:14px}
-.etape h3{font-family:var(--font-display);font-weight:400;font-size:1.3rem;margin-bottom:8px}
-.etape p{font-size:.93rem;color:rgba(16,27,21,.7)}
+/* ————— méthode ————— */
+.chrono{border-left:1.5px solid var(--encre);margin-left:8px;padding-left:38px;display:flex;flex-direction:column;gap:40px;max-width:640px}
+.jalon{position:relative}
+.jalon::before{content:"";position:absolute;left:-46px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--laiton);border:3px solid var(--creme)}
+.jalon .jour{font-family:var(--display);font-style:italic;font-size:1.08rem;color:var(--vert);display:block;margin-bottom:4px}
+.jalon h3{font-family:var(--display);font-weight:400;font-size:1.4rem;margin-bottom:6px}
+.jalon p{font-size:.94rem;color:var(--encre-70);max-width:52ch}
 
-/* ---------- pourquoi ---------- */
-.pourquoi{background:var(--vert);color:var(--blanc)}
-.pourquoi h2{color:var(--blanc)}
-.pourquoi .kicker{color:var(--laiton-clair)}
-.pourquoi-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 48px;margin-top:40px}
-.raison h3{font-family:var(--font-display);font-weight:400;font-size:1.25rem;margin-bottom:6px;color:var(--laiton-clair)}
-.raison p{font-size:.94rem;color:rgba(247,246,241,.78)}
-
-/* ---------- FAQ ---------- */
-.faq details{border-bottom:1px solid var(--ligne);padding:20px 4px}
+/* ————— FAQ ————— */
+.faq details{border-bottom:1px solid var(--ligne);padding:21px 4px}
 .faq details:first-of-type{border-top:1px solid var(--ligne)}
-.faq summary{cursor:pointer;font-weight:600;font-size:1.02rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary{cursor:pointer;font-weight:600;font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--font-display);font-size:1.5rem;color:var(--vert);transition:transform .2s;flex:none}
+.faq summary::after{content:"+";font-family:var(--display);font-size:1.5rem;color:var(--vert);transition:transform .2s;flex:none}
 .faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{margin-top:12px;font-size:.94rem;color:rgba(16,27,21,.72);max-width:60ch}
+.faq details p{margin-top:12px;font-size:.93rem;color:var(--encre-70);max-width:62ch}
 
-/* ---------- contact ---------- */
-.contact{background:var(--blanc-pur);border-top:1px solid var(--ligne)}
-.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
-.contact-info p{color:rgba(16,27,21,.72);margin-bottom:24px;max-width:380px}
+/* ————— contact ————— */
+.contact{background:var(--blanc);border-top:1px solid var(--ligne-douce)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:start}
+.contact-info p{color:var(--encre-70);margin-bottom:26px;max-width:400px}
 .contact-info a.mail{font-weight:700;color:var(--vert);text-decoration:none;font-size:1.05rem}
 .contact-info a.mail:hover{text-decoration:underline}
-form{border:1.5px solid var(--encre);outline:1.5px solid var(--encre);outline-offset:5px;background:var(--blanc);padding:34px 30px}
+form{border:1.5px solid var(--encre);outline:1.5px solid var(--encre);outline-offset:6px;background:var(--creme);padding:36px 32px}
 .field{margin-bottom:18px}
 .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:7px}
-.field input,.field select,.field textarea{width:100%;padding:13px 15px;border:1.5px solid var(--ligne);border-radius:10px;font-family:var(--font-body);font-size:.95rem;background:var(--blanc-pur);color:var(--encre)}
-.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--vert);outline-offset:1px;border-color:transparent}
-.field textarea{resize:vertical;min-height:100px}
+.field input,.field textarea{width:100%;padding:13px 15px;border:1.5px solid var(--ligne);border-radius:10px;font-family:var(--body);font-size:.95rem;background:var(--blanc);color:var(--encre)}
+.field input:focus,.field textarea:focus{outline:2px solid var(--vert);outline-offset:1px;border-color:transparent}
+.field textarea{resize:vertical;min-height:104px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 form .btn{width:100%;justify-content:center}
-form .note{font-size:.8rem;color:rgba(16,27,21,.55);text-align:center;margin-top:12px}
+form .note{font-size:.8rem;color:var(--encre-55);text-align:center;margin-top:12px}
 
-/* ---------- footer ---------- */
-footer{background:var(--encre);color:rgba(247,246,241,.65);padding:40px 0 28px;font-size:.88rem}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+/* ————— footer ————— */
+footer{background:var(--encre);color:rgba(247,246,241,.65);padding:44px 0 28px;font-size:.88rem}
+.foot{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
 footer .brand{font-size:1.35rem}
-.foot-legal{margin-top:24px;padding-top:20px;border-top:1px solid rgba(247,246,241,.12);font-size:.78rem;color:rgba(247,246,241,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.foot-legal{margin-top:26px;padding-top:20px;border-top:1px solid rgba(247,246,241,.12);font-size:.78rem;color:rgba(247,246,241,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
 /* reveal */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
-  .btn,.demo{transition:none}
+  .btn,.demo,.burger span{transition:none}
 }
 
 /* responsive */
 @media (max-width:920px){
-  .demos-grid,.offre-grid,.pourquoi-grid,.contact-grid{grid-template-columns:1fr}
-  .etapes{grid-template-columns:1fr}
-  .vitrine{padding:52px 28px}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-aside{border-left:none;border-top:1.5px solid var(--encre);padding-left:0;padding-top:24px}
+  .demo,.demo:nth-of-type(even){grid-template-columns:1fr}
+  .demo:nth-of-type(even) .demo-visu{order:0}
+  .demo-visu{min-height:230px}
+  .offre-grid,.contact-grid{grid-template-columns:1fr}
+  .prix-card{position:static}
+  .vitrine{padding:52px 30px}
 }
 @media (max-width:640px){
-  .nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--vert);flex-direction:column;gap:0;padding:8px 0;align-items:stretch}
+  .nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--vert);flex-direction:column;gap:0;padding:8px 0;align-items:stretch;box-shadow:0 18px 30px rgba(16,27,21,.25)}
   .nav-links.open{display:flex}
   .nav-links a{display:block;padding:14px 24px}
   .nav-links .nav-cta{margin:10px 24px;text-align:center;border-radius:12px}
   .burger{display:block}
-  section{padding:60px 0}
-  .hero{padding:46px 0 56px}
-  .vitrine .enseigne{font-size:.62rem;padding:6px 14px}
+  section{padding:62px 0}
+  .hero{padding:48px 0 20px}
+  .vitrine .enseigne{font-size:.58rem;padding:6px 14px;letter-spacing:.18em}
+  .form-row{grid-template-columns:1fr}
+  .chrono{padding-left:28px}
+  .jalon::before{left:-36px}
+  .demo-txt{padding:26px 24px}
 }
 </style>
 </head>
 <body>
+<a href="#demos" class="skip">Aller au contenu</a>
 
 <header>
   <div class="container nav">
-    <a href="#" class="brand" style="display:flex;align-items:center;gap:11px">
-      <svg width="30" height="30" viewBox="0 0 78 70" aria-hidden="true"><rect x="1" y="0" width="76" height="6" rx="3" fill="#C2A14D"/><rect x="3" y="8" width="14.4" height="26" fill="#F7F6F1"/><rect x="17.4" y="8" width="14.4" height="26" fill="#C2A14D"/><rect x="31.8" y="8" width="14.4" height="26" fill="#F7F6F1"/><rect x="46.2" y="8" width="14.4" height="26" fill="#C2A14D"/><rect x="60.6" y="8" width="14.4" height="26" fill="#F7F6F1"/><path d="M3 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><path d="M17.4 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#C2A14D"/><path d="M31.8 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><path d="M46.2 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#C2A14D"/><path d="M60.6 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><rect x="23" y="58" width="32" height="4" rx="2" fill="#C2A14D"/></svg>
+    <a href="#" class="brand" aria-label="Studio Auvent — retour en haut">
+      <svg width="28" height="28" viewBox="0 0 78 70" aria-hidden="true"><rect x="1" y="0" width="76" height="6" rx="3" fill="#C2A14D"/><rect x="3" y="8" width="14.4" height="26" fill="#F7F6F1"/><rect x="17.4" y="8" width="14.4" height="26" fill="#C2A14D"/><rect x="31.8" y="8" width="14.4" height="26" fill="#F7F6F1"/><rect x="46.2" y="8" width="14.4" height="26" fill="#C2A14D"/><rect x="60.6" y="8" width="14.4" height="26" fill="#F7F6F1"/><path d="M3 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><path d="M17.4 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#C2A14D"/><path d="M31.8 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><path d="M46.2 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#C2A14D"/><path d="M60.6 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><rect x="23" y="58" width="32" height="4" rx="2" fill="#C2A14D"/></svg>
       Studio Auvent
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#demos">Démos</a></li>
+      <li><a href="#demos">Le travail</a></li>
       <li><a href="#offre">L'offre</a></li>
-      <li><a href="#methode">La méthode</a></li>
+      <li><a href="#methode">Les 7 jours</a></li>
       <li><a href="#faq">Questions</a></li>
-      <li><a href="#contact" class="nav-cta">Démarrer mon site</a></li>
+      <li><a href="#contact" class="nav-cta">Parler de votre site</a></li>
     </ul>
-    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </header>
 <div class="awning" aria-hidden="true"></div>
@@ -222,92 +288,107 @@ footer .brand{font-size:1.35rem}
 <section class="hero">
   <div class="container">
     <div class="vitrine reveal">
-      <span class="enseigne">Sites web · Artisans &amp; commerces · Aube — Marne — Yonne </span>
-      <h1>Votre métier mérite une belle <em>vitrine</em>. En ligne aussi.</h1>
-      <p class="lead">Nous créons le site de votre entreprise : design soigné, visible sur Google, prêt en 7 jours. Vous travaillez, on s'occupe du reste.</p>
-      <div class="hero-ctas">
-        <a href="#offre" class="btn btn-vert">Découvrir l'offre</a>
-        <a href="#demos" class="btn btn-ligne">Voir des exemples</a>
-      </div>
-      <div class="hero-points">
-        <span><i></i>0€ à la création</span>
-        <span><i></i>En ligne en 7 jours</span>
-        <span><i></i>89€/mois, tout compris</span>
+      <span class="enseigne">Sites web · Artisans &amp; commerces · Aube · Marne · Yonne</span>
+      <div class="hero-grid">
+        <div>
+          <h1>Votre métier mérite une belle <em>vitrine</em>. En ligne aussi.</h1>
+          <p class="lead">Studio Auvent conçoit les sites des artisans et commerces de la région. Quatre à cinq pages, pensées d'abord pour le téléphone — parce que c'est là que vos clients vous cherchent. En ligne en sept jours.</p>
+          <div class="hero-ctas">
+            <a href="#offre" class="btn btn-vert">Voir l'offre</a>
+            <a href="#demos" class="btn btn-ligne">Voir le travail</a>
+          </div>
+        </div>
+        <div class="hero-aside">
+          <div class="prix"><b>699€</b> <span class="une-fois">la création</span><br><span class="trois-fois">ou 3 × 233€ sans frais</span></div>
+          <p>Le site vous appartient. Maintenance à 29€/mois — hébergement, domaine, modifications — sans engagement. Pas d'autre ligne sur la facture.</p>
+        </div>
       </div>
     </div>
+    <p class="hero-note">On commence par vous montrer <em>votre</em> site — la maquette d'abord, la décision ensuite.</p>
   </div>
 </section>
 
-<div class="constat">
-  <p>8 clients sur 10 vous cherchent sur Google <em>avant</em> de vous appeler. Que trouvent-ils&nbsp;?</p>
+<div class="manifeste">
+  <div class="container">
+    <p>Un artisan n'a pas besoin d'un site de startup. Il a besoin qu'on le <em>trouve</em>, qu'on voie ses chantiers, et qu'on puisse l'appeler en deux gestes. C'est ce qu'on construit. Rien de plus — <em>et c'est voulu.</em></p>
+    <p class="sign">Studio Auvent, Troyes</p>
+  </div>
 </div>
 
 <section id="demos">
   <div class="container">
     <div class="section-head reveal">
-      <span class="kicker">Nos réalisations</span>
-      <h2>Un site qui ressemble à votre métier</h2>
-      <p>Pas de modèle générique : chaque site est conçu pour votre activité, vos clients et votre région. Quatre exemples à explorer&nbsp;:</p>
+      <span class="kicker">Le travail</span>
+      <h2>Cinq métiers, cinq sites qui ne se ressemblent pas</h2>
+      <p>Un plombier et un traiteur n'ont pas les mêmes clients ni les mêmes urgences. Leurs sites ne devraient pas sortir du même moule. Pour chaque démo, voici le choix de conception qui la structure.</p>
     </div>
-    <div class="demos-grid">
-      <!-- Remplace les href par les URLs réelles de tes démos une fois hébergées -->
-      <a href="https://plomberie.studio-auvent.fr" class="demo reveal">
+
+    <a href="https://plomberie.studio-auvent.fr" class="demo reveal">
+      <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">plomberie-dubois.fr</span></div>
-        <div class="mini mini-plombier" aria-hidden="true">
-          <div class="bar bar1"></div>
-          <div class="bar bar2"></div>
-          <div class="pill"></div>
-          <div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div>
-        </div>
-        <div class="body">
-          <h3>Plomberie Dubois — Troyes</h3>
-          <p>Artisan du bâtiment : urgences, devis, zone d'intervention, avis clients. Pensé pour déclencher l'appel.</p>
-          <span class="voir">Explorer la démo →</span>
-        </div>
-      </a>
-      <a href="https://boulangerie.studio-auvent.fr" class="demo reveal">
+        <div class="capture"><div class="mini mini-plombier" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+      </div>
+      <div class="demo-txt">
+        <span class="metier"><span class="num">01</span> Plombier-chauffagiste</span>
+        <h3>Plomberie Dubois, Troyes</h3>
+        <p class="decision"><b>Le choix :</b> pour un dépanneur, le numéro de téléphone est le produit. Il est donc traité comme tel — énorme, orange sécurité, cliquable depuis chaque écran. Et les tarifs sont affichés dès le premier écran : les annoncer, c'est déjà rassurer.</p>
+        <span class="voir">Explorer la démo →</span>
+      </div>
+    </a>
+
+    <a href="https://boulangerie.studio-auvent.fr" class="demo reveal">
+      <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">boulangerie-du-marche.fr</span></div>
-        <div class="mini mini-boulangerie" aria-hidden="true">
-          <div class="bar bar1"></div>
-          <div class="bar bar2"></div>
-          <div class="pill"></div>
-          <div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div>
-        </div>
-        <div class="body">
-          <h3>Boulangerie du Marché — Troyes</h3>
-          <p>Commerce de bouche : horaires en évidence, spécialités en photos, commandes. Pensé pour faire venir en boutique.</p>
-          <span class="voir">Explorer la démo →</span>
-        </div>
-      </a>
-      <a href="https://electricien.studio-auvent.fr" class="demo reveal">
+        <div class="capture"><div class="mini mini-boulangerie" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+      </div>
+      <div class="demo-txt">
+        <span class="metier"><span class="num">02</span> Boulangerie-pâtisserie</span>
+        <h3>Boulangerie du Marché, Troyes</h3>
+        <p class="decision"><b>Le choix :</b> ce qu'on cherche d'une boulangerie sur Google, ce sont les horaires. Ils occupent donc une section entière — avec le jour en cours surligné automatiquement. Le reste donne faim.</p>
+        <span class="voir">Explorer la démo →</span>
+      </div>
+    </a>
+
+    <a href="https://electricien.studio-auvent.fr" class="demo reveal">
+      <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">girard-electricite.fr</span></div>
-        <div class="mini mini-electricien" aria-hidden="true">
-          <div class="bar bar1"></div>
-          <div class="bar bar2"></div>
-          <div class="pill"></div>
-          <div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div>
-        </div>
-        <div class="body">
-          <h3>Girard Électricité — Troyes</h3>
-          <p>Artisan technique : mise aux normes, bornes de recharge, certifications mises en avant. Pensé pour rassurer et déclencher le devis.</p>
-          <span class="voir">Explorer la démo →</span>
-        </div>
-      </a>
-      <a href="https://traiteur.studio-auvent.fr" class="demo reveal">
+        <div class="capture"><div class="mini mini-electricien" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+      </div>
+      <div class="demo-txt">
+        <span class="metier"><span class="num">03</span> Électricien</span>
+        <h3>Girard Électricité, Troyes</h3>
+        <p class="decision"><b>Le choix :</b> le produit d'un électricien, c'est la lumière. Le site est donc sombre comme une pièce avant travaux — et ce sont les photos de chantiers qui l'éclairent. Avec une section dédiée aux bornes de recharge, le marché qui monte.</p>
+        <span class="voir">Explorer la démo →</span>
+      </div>
+    </a>
+
+    <a href="https://traiteur.studio-auvent.fr" class="demo reveal">
+      <div class="demo-visu">
         <div class="browser"><i></i><i></i><i></i><span class="url">maison-berthelot.fr</span></div>
-        <div class="mini mini-traiteur" aria-hidden="true">
-          <div class="bar bar1"></div>
-          <div class="bar bar2"></div>
-          <div class="pill"></div>
-          <div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div>
-        </div>
-        <div class="body">
-          <h3>Maison Berthelot — Traiteur, Troyes</h3>
-          <p>Événementiel haut de gamme : formules à la carte, galerie, demande de devis avec date et nombre de convives. Pensé pour vendre du sur-mesure.</p>
-          <span class="voir">Explorer la démo →</span>
-        </div>
-      </a>
-    </div>
+        <div class="capture"><div class="mini mini-traiteur" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+      </div>
+      <div class="demo-txt">
+        <span class="metier"><span class="num">04</span> Traiteur événementiel</span>
+        <h3>Maison Berthelot, Troyes</h3>
+        <p class="decision"><b>Le choix :</b> un mariage se décide sur le raffinement perçu. Formules présentées comme une carte de restaurant, et un formulaire qui demande la date et le nombre de convives — exactement ce qu'il faut au traiteur pour chiffrer vite.</p>
+        <span class="voir">Explorer la démo →</span>
+      </div>
+    </a>
+
+    <a href="https://menuisier.studio-auvent.fr" class="demo reveal">
+      <div class="demo-visu">
+        <div class="browser"><i></i><i></i><i></i><span class="url">atelier-vasseur.fr</span></div>
+        <div class="capture"><div class="mini mini-menuisier" aria-hidden="true"><div class="bar bar1"></div><div class="bar bar2"></div><div class="pill"></div><div class="row"><div class="box"></div><div class="box"></div><div class="box"></div></div></div></div>
+      </div>
+      <div class="demo-txt">
+        <span class="metier"><span class="num">05</span> Menuisier-agenceur</span>
+        <h3>Atelier Vasseur, Troyes</h3>
+        <p class="decision"><b>Le choix :</b> chez un menuisier, on montre d'abord, on parle après. La galerie de réalisations arrive donc avant tout discours — en formats inégaux, comme les pièces elles-mêmes. Et le formulaire ose demander l'enveloppe budgétaire : elle oriente le dessin.</p>
+        <span class="voir">Explorer la démo →</span>
+      </div>
+    </a>
+
+    <p class="demos-note">Ces cinq sites sont des démonstrations : entreprises fictives, savoir-faire réel. Votre site à vous partira de votre métier, pas d'un modèle.</p>
   </div>
 </section>
 
@@ -315,20 +396,27 @@ footer .brand{font-size:1.35rem}
   <div class="container offre-grid">
     <div class="reveal">
       <span class="kicker">L'offre</span>
-      <h2>Un prix simple, tout est compris</h2>
-      <ul class="inclus" style="margin-top:26px">
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Votre site professionnel</b> — 4 à 5 pages, design sur mesure, adapté au téléphone</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Nom de domaine et hébergement</b> — votre adresse en .fr, incluse et gérée pour vous</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Fiche Google optimisée</b> — pour apparaître quand on cherche votre métier dans votre ville</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Modifications incluses</b> — nouveaux tarifs, photos, horaires : envoyez un message, c'est fait</span></li>
-        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><b>Un interlocuteur unique, local</b> — pas de plateforme, pas de ticket, une vraie personne de la région</span></li>
+      <h2>Un prix, un site qui est <em>à vous</em> — et le reste est écrit.</h2>
+      <ul class="inclus">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>La création, 699€ une fois</b> — 4 à 5 pages sur mesure, textes rédigés, photos guidées. Pas quinze pages : personne ne lit la page six, et Google préfère les sites clairs. Payable en trois fois, et le dernier tiers seulement quand le site est en ligne et validé.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Le site vous appartient</b> — intégralement, dès le solde réglé. Fichiers, design, nom de domaine : tout est à votre nom. Aucune prise d'otage possible.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Fiche Google configurée, incluse dans la création</b> — pour ressortir sur « votre métier + votre commune ». C'est là que se joue l'essentiel du référencement local.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>La maintenance, 29€/mois, sans engagement</b> — hébergement, domaine renouvelé, surveillance, et jusqu'à deux modifications par mois (cumulables) livrées sous 48 h ouvrées. Résiliable par simple email.</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1E4634" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Un seul interlocuteur, dans l'Aube</b> — celui qui décroche est celui qui a fait votre site. On peut même se voir en vrai.</span></li>
       </ul>
-      <p class="engagement">Engagement de 12 mois, puis résiliable à tout moment. Le site reste hébergé et maintenu par Studio Auvent pendant toute la durée de l'abonnement.</p>
+      <div class="pas-inclus">
+        <h3>Ce qu'on ne vend pas — et pourquoi</h3>
+        <ul>
+          <li><b>La boutique en ligne au lancement.</b> Rarement rentable pour un artisan ; si votre activité la justifie un jour, on la chiffrera à ce moment-là.</li>
+          <li><b>La « première position garantie » sur Google.</b> Personne ne peut la garantir honnêtement. On construit ce que Google récompense, et on vous dit la vérité sur les délais.</li>
+          <li><b>La publicité payante.</b> Sur une recherche locale, une fiche Google bien tenue fait souvent mieux qu'un budget pub — et elle, elle est comprise.</li>
+        </ul>
+      </div>
     </div>
     <div class="prix-card reveal">
-      <div class="zero">0€ <small>à la création</small></div>
-      <div class="mensuel">puis <b>89€</b> / mois</div>
-      <p class="detail">Tout compris. Sans frais cachés. Sans surprise.</p>
+      <div class="creation">699€ <small>la création</small></div>
+      <div class="mensuel">ou <b>3 × 233€</b> sans frais</div>
+      <p class="detail">Puis 29€/mois pour la maintenance — hébergement, domaine, deux modifications par mois — sans engagement, résiliable par email. Le dernier tiers ne se règle qu'une fois le site en ligne.</p>
       <a href="#contact" class="btn btn-vert">Démarrer mon site</a>
     </div>
   </div>
@@ -338,48 +426,23 @@ footer .brand{font-size:1.35rem}
   <div class="container">
     <div class="section-head reveal">
       <span class="kicker">La méthode</span>
-      <h2>En ligne en 7 jours, sans jargon</h2>
+      <h2>Sept jours, trois rendez-vous, zéro jargon</h2>
     </div>
-    <div class="etapes">
-      <div class="etape reveal">
-        <span class="num">un</span>
-        <h3>On échange 20 minutes</h3>
-        <p>Par téléphone ou par messages : votre métier, vos clients, ce que vous voulez montrer. Vous m'envoyez vos photos et vos infos, c'est tout ce dont j'ai besoin.</p>
+    <div class="chrono reveal">
+      <div class="jalon">
+        <span class="jour">Jour 1</span>
+        <h3>On se parle, vingt minutes</h3>
+        <p>Votre métier, vos clients, ce que vous voulez montrer. Vous m'envoyez vos photos — celles du téléphone suffisent, je vous dis lesquelles prendre — et vos infos. C'est votre seule vraie tâche du projet.</p>
       </div>
-      <div class="etape reveal">
-        <span class="num">deux</span>
-        <h3>Vous validez la maquette</h3>
-        <p>Sous quelques jours, vous recevez votre site en avant-première. Vous demandez les ajustements que vous voulez — on affine jusqu'à ce que ce soit vous.</p>
+      <div class="jalon">
+        <span class="jour">Jour 3 ou 4</span>
+        <h3>Vous recevez votre site en avant-première</h3>
+        <p>Un lien, à ouvrir sur votre téléphone. Vous demandez les ajustements que vous voulez : on affine jusqu'à ce que ce soit vous. La validation se fait par un simple message.</p>
       </div>
-      <div class="etape reveal">
-        <span class="num">trois</span>
+      <div class="jalon">
+        <span class="jour">Jour 7</span>
         <h3>Votre site est en ligne</h3>
-        <p>Nom de domaine, mise en ligne, fiche Google : tout est fait. Vos clients vous trouvent, vous n'avez plus qu'à répondre au téléphone.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="pourquoi">
-  <div class="container">
-    <span class="kicker reveal">Pourquoi Studio Auvent</span>
-    <h2 class="reveal">Le soin d'un artisan, appliqué au web</h2>
-    <div class="pourquoi-grid">
-      <div class="raison reveal">
-        <h3>Local, vraiment</h3>
-        <p>Basé dans l'Aube, on peut se rencontrer. Votre site parle de vos communes, pas d'une ville générique.</p>
-      </div>
-      <div class="raison reveal">
-        <h3>0€ pour démarrer</h3>
-        <p>Pas de devis à 2 000€ à avancer. Vous gardez votre trésorerie pour votre activité, le site se finance au mois.</p>
-      </div>
-      <div class="raison reveal">
-        <h3>Du sur-mesure, pas un modèle</h3>
-        <p>Chaque site est dessiné pour un métier. Un plombier et un boulanger n'ont pas les mêmes clients — leurs sites non plus.</p>
-      </div>
-      <div class="raison reveal">
-        <h3>Vous restez concentré sur votre métier</h3>
-        <p>Hébergement, sécurité, modifications, Google : tout est pris en charge. Vous n'aurez jamais à toucher à la technique.</p>
+        <p>Nom de domaine actif, fiche Google configurée, tout est testé. Le solde ne se règle qu'à ce moment-là, site en ligne et validé. À partir d'ici, chaque modification est à un message de distance.</p>
       </div>
     </div>
   </div>
@@ -388,29 +451,33 @@ footer .brand{font-size:1.35rem}
 <section class="faq" id="faq">
   <div class="container">
     <div class="section-head reveal">
-      <span class="kicker">Questions fréquentes</span>
-      <h2>Ce qu'on nous demande souvent</h2>
+      <span class="kicker">Questions</span>
+      <h2>Celles qu'on nous pose vraiment</h2>
     </div>
     <div class="reveal">
       <details>
-        <summary>Pourquoi 0€ à la création ? Où est le piège ?</summary>
-        <p>Il n'y en a pas : la création est financée par l'abonnement, avec un engagement de 12 mois. C'est le même principe qu'un forfait téléphone avec le mobile inclus. Nous y gagnons un partenariat durable, vous y gagnez un site professionnel sans sortir 1 500 ou 2 000€ d'un coup.</p>
+        <summary>699€, c'est deux à trois fois moins qu'une agence. Pourquoi ?</summary>
+        <p>Parce qu'il n'y a ni commercial, ni chef de projet, ni loyer de bureaux dans le prix — une seule personne, des outils maîtrisés, et des sites de 4-5 pages faits pour les artisans, pas des usines à gaz. Le contrat détaille ce qui est compris, et le dernier tiers ne se paie qu'une fois le site en ligne et validé : le risque est de notre côté, pas du vôtre.</p>
       </details>
       <details>
-        <summary>Que se passe-t-il si je résilie ?</summary>
-        <p>Après les 12 premiers mois, vous résiliez quand vous voulez, sans frais. Le site est alors mis hors ligne — il reste la propriété de Studio Auvent, c'est ce qui permet le 0€ au départ. Votre nom de domaine peut vous être transféré sur demande.</p>
+        <summary>Vous êtes qui, en fait ?</summary>
+        <p>Un studio indépendant basé dans l'Aube — pas une plateforme, pas un call-center, pas un revendeur de templates. La personne qui vous répond est celle qui conçoit votre site. C'est plus lent qu'une usine à sites, et c'est exactement le but.</p>
       </details>
       <details>
-        <summary>Je peux faire modifier mon site quand je veux ?</summary>
-        <p>Oui : nouveaux horaires, tarifs, photos de chantiers, promotion du moment… Envoyez un message, la modification est faite sous 48h ouvrées. C'est inclus dans l'abonnement, sans limite raisonnable.</p>
+        <summary>Le site m'appartient vraiment ?</summary>
+        <p>Intégralement, dès le solde réglé : les fichiers, le design, le nom de domaine — tout est à votre nom. La maintenance à 29€/mois est un service, pas une laisse : si vous l'arrêtez, le site reste le vôtre. Il faudra simplement gérer vous-même l'hébergement et le renouvellement du domaine, ou nous les confier de nouveau plus tard.</p>
       </details>
       <details>
-        <summary>Je n'ai ni photos ni textes. C'est un problème ?</summary>
-        <p>Non. Les textes sont rédigés pour vous à partir de notre échange. Pour les photos, quelques clichés au téléphone suffisent souvent — et on vous guide pour les prendre. Le site peut aussi démarrer avec des visuels professionnels de banque d'images, remplacés ensuite par les vôtres.</p>
+        <summary>Que couvrent exactement les 29€ par mois ?</summary>
+        <p>L'hébergement, le renouvellement du nom de domaine, la surveillance du bon fonctionnement, et jusqu'à deux demandes de modification par mois — cumulables si vous ne les utilisez pas — livrées sous 48 h ouvrées : horaires, tarifs, photos de chantiers, promotion du moment. Sans engagement, résiliable par email.</p>
       </details>
       <details>
-        <summary>En quoi est-ce mieux que Wix ou une page Facebook ?</summary>
-        <p>Une page Facebook ne vous appartient pas et ressort mal sur Google. Les outils comme Wix demandent du temps que vous n'avez pas — et ça se voit au résultat. Ici, un professionnel conçoit, référence et entretient votre site pendant que vous exercez votre métier.</p>
+        <summary>Je n'ai ni photos ni textes. C'est bloquant ?</summary>
+        <p>Non, c'est même le cas le plus courant. Les textes sont rédigés à partir de notre échange. Pour les photos, trois clichés au téléphone d'un chantier ou de votre boutique valent mieux qu'une banque d'images — on vous guide pour les prendre, et on peut démarrer avec des visuels provisoires en attendant.</p>
+      </details>
+      <details>
+        <summary>En quoi c'est mieux que Wix ou une page Facebook ?</summary>
+        <p>Une page Facebook ne vous appartient pas et ressort mal sur Google. Wix demande des soirées que vous n'avez pas — et ça se voit au résultat. Ici, quelqu'un dont c'est le métier conçoit, référence et entretient votre site pendant que vous exercez le vôtre. La vraie comparaison, c'est : combien vous coûte un client qui ne vous a pas trouvé ?</p>
       </details>
     </div>
   </div>
@@ -421,10 +488,9 @@ footer .brand{font-size:1.35rem}
     <div class="contact-info reveal">
       <span class="kicker">Contact</span>
       <h2>Parlons de votre site</h2>
-      <p>Décrivez votre activité en deux lignes — vous recevez une réponse sous 24h, avec une première idée de ce que donnerait votre site. Sans engagement.</p>
+      <p>Décrivez votre activité en deux lignes. Vous recevez une réponse sous 24 h ouvrées — avec, si votre métier s'y prête, une première idée concrète de ce que donnerait votre site. Sans engagement, et sans relance insistante si ce n'est pas le moment.</p>
       <a class="mail" href="mailto:bonjour@studio-auvent.fr">bonjour@studio-auvent.fr</a>
     </div>
-    <!-- Crée ton formulaire sur formspree.io et remplace TON_ID ci-dessous -->
     <form class="reveal" action="https://formspree.io/f/mdarypdk" method="POST">
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div class="form-row">
@@ -442,12 +508,12 @@ footer .brand{font-size:1.35rem}
         <input type="text" id="metier" name="activite" placeholder="Ex. : électricien à Romilly-sur-Seine">
       </div>
       <div class="field">
-        <label for="msg">Votre projet en quelques mots</label>
-        <textarea id="msg" name="message" placeholder="Ex. : je n'ai pas de site, mes clients me trouvent uniquement par bouche-à-oreille…"></textarea>
+        <label for="msg">Votre situation en quelques mots</label>
+        <textarea id="msg" name="message" placeholder="Ex. : pas de site, mes clients viennent du bouche-à-oreille, mais les jeunes propriétaires ne me trouvent pas…"></textarea>
       </div>
       <button type="submit" class="btn btn-vert">Recevoir ma proposition</button>
       <p id="form-status" role="status" style="text-align:center;font-weight:600;font-size:.92rem;margin-top:14px;display:none"></p>
-      <p class="note">Réponse sous 24h ouvrées. Vos coordonnées ne sont jamais partagées.</p>
+      <p class="note">Réponse sous 24 h ouvrées. Vos coordonnées ne servent qu'à vous répondre.</p>
     </form>
   </div>
 </section>
@@ -456,16 +522,19 @@ footer .brand{font-size:1.35rem}
   <div class="container">
     <div class="foot">
       <div>
-        <a href="#" class="brand">Studio Auvent</a>
-        <p style="margin-top:6px;max-width:320px">Sites web pour artisans et commerces — Aube, Marne, Yonne et alentours.</p>
+        <a href="#" class="brand">
+          <svg width="24" height="24" viewBox="0 0 78 70" aria-hidden="true"><rect x="1" y="0" width="76" height="6" rx="3" fill="#C2A14D"/><rect x="3" y="8" width="14.4" height="26" fill="#F7F6F1"/><rect x="17.4" y="8" width="14.4" height="26" fill="#C2A14D"/><rect x="31.8" y="8" width="14.4" height="26" fill="#F7F6F1"/><rect x="46.2" y="8" width="14.4" height="26" fill="#C2A14D"/><rect x="60.6" y="8" width="14.4" height="26" fill="#F7F6F1"/><path d="M3 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><path d="M17.4 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#C2A14D"/><path d="M31.8 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><path d="M46.2 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#C2A14D"/><path d="M60.6 34 a7.2 7.2 0 0 0 14.4 0 Z" fill="#F7F6F1"/><rect x="23" y="58" width="32" height="4" rx="2" fill="#C2A14D"/></svg>
+          Studio Auvent
+        </a>
+        <p style="margin-top:8px;max-width:320px">Sites web pour artisans et commerces — Aube, Marne, Yonne. Un studio, un interlocuteur.</p>
       </div>
       <div style="text-align:right">
         <p><a href="mailto:bonjour@studio-auvent.fr" style="text-decoration:none;color:var(--laiton-clair)">bonjour@studio-auvent.fr</a></p>
-        <p style="margin-top:4px"><a href="#demos" style="text-decoration:none">Démos</a> · <a href="#offre" style="text-decoration:none">Offre</a> · <a href="#contact" style="text-decoration:none">Contact</a></p>
+        <p style="margin-top:4px"><a href="#demos" style="text-decoration:none">Le travail</a> · <a href="#offre" style="text-decoration:none">L'offre</a> · <a href="#contact" style="text-decoration:none">Contact</a></p>
       </div>
     </div>
     <div class="foot-legal">
-      <span>© 2026 Studio Auvent — Micro-entreprise, France</span>
+      <span>© 2026 Studio Auvent — Micro-entreprise, Troyes</span>
       <span>Mentions légales · Confidentialité</span>
     </div>
   </div>
@@ -473,9 +542,12 @@ footer .brand{font-size:1.35rem}
 
 <script>
 const burger=document.getElementById('burger'),links=document.getElementById('navLinks');
-burger.addEventListener('click',()=>links.classList.toggle('open'));
-links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+burger.addEventListener('click',()=>{
+  const open=links.classList.toggle('open');
+  burger.setAttribute('aria-expanded',open?'true':'false');
+});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{links.classList.remove('open');burger.setAttribute('aria-expanded','false')}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 // envoi du formulaire sans quitter la page
 const form=document.querySelector('form'),statut=document.getElementById('form-status');
@@ -487,11 +559,11 @@ form.addEventListener('submit',async e=>{
   try{
     const rep=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
     if(rep.ok){
-      statut.textContent='✓ Message envoyé — je vous réponds sous 24h.';
+      statut.textContent='Message envoyé — je vous réponds sous 24h.';
       statut.style.color='#1E4634';
       form.reset();
     }else{
-      statut.textContent='Une erreur est survenue. Réessayez, ou écrivez-moi directement : bonjour@studio-auvent.fr';
+      statut.textContent='Une erreur est survenue. Réessayez, ou écrivez-moi : bonjour@studio-auvent.fr';
       statut.style.color='#A03A2E';
     }
   }catch(err){
